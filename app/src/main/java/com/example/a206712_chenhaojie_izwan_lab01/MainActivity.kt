@@ -238,7 +238,11 @@ fun FunctionGrid(){
                 Card(
                     modifier = Modifier
                         .size(70.dp),
-                    shape = RoundedCornerShape(12.dp)
+                    shape = RoundedCornerShape(12.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.primaryContainer
+                    )
+
 
                 ){
                     Column(
@@ -259,7 +263,10 @@ fun FunctionGrid(){
             Card (
                 modifier = Modifier
                     .size(70.dp),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                )
 
             ){
                 Column(modifier = Modifier.fillMaxSize(),
@@ -279,7 +286,10 @@ fun FunctionGrid(){
             Card(
                 modifier = Modifier
                     .size(70.dp),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                )
 
             ){
                 Column( modifier = Modifier.fillMaxSize(),
@@ -299,7 +309,10 @@ fun FunctionGrid(){
             Card(
                 modifier = Modifier
                     .size(70.dp),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                )
 
             ){
                 Column(modifier = Modifier.fillMaxSize(),
@@ -323,7 +336,10 @@ fun FunctionGrid(){
             Card(
                 modifier = Modifier
                     .size(70.dp),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                )
 
             ) {
                 Column(modifier = Modifier.fillMaxSize(),
@@ -343,7 +359,10 @@ fun FunctionGrid(){
                 modifier = Modifier
                     .size(70.dp)
                     ,
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                )
             ) {
                 Column(modifier = Modifier.fillMaxSize(),
                     verticalArrangement  = Arrangement.Center,
@@ -361,7 +380,10 @@ fun FunctionGrid(){
             Card(
                 modifier = Modifier
                     .size(70.dp),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                )
             ) {
                 Column(modifier = Modifier.fillMaxSize(),
                     verticalArrangement  = Arrangement.Center,
@@ -372,14 +394,18 @@ fun FunctionGrid(){
                         modifier = Modifier.size(34.dp)
                     )
                     Text(text = "Bill",
-                        fontSize = 13.sp)
+                        fontSize = 13.sp,
+                       // color = MaterialTheme.colorScheme.onPrimary
+                 )
                 }
             }
-
             Card(
                 modifier = Modifier
                     .size(70.dp),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                )
             ) {
                 Column(modifier = Modifier.fillMaxSize(),
                     verticalArrangement  = Arrangement.Center,
@@ -430,6 +456,7 @@ fun WalletSection() {
                                 .padding(2.dp),
                             verticalArrangement = Arrangement.SpaceAround
                         ) {
+
                             Row(modifier = Modifier
                                 .fillMaxWidth()) {
                                 Text(
@@ -458,7 +485,7 @@ fun WalletSection() {
                                         .padding(bottom = 4.dp)
                                 )
                             }
-                            if (expanded) {
+                           if (expanded) {
                                 ExtendContent(modifier = Modifier.padding(10.dp))
                             }
                         }
