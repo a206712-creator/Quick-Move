@@ -92,44 +92,61 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     bottomBar = {
-                        if (currentRoute == "home" )
-                        { BottBar() }
+                        if (currentRoute == "home" || currentRoute == "message") {
+                            BottBar(navController)
+                        }
                     }
-                ){
-                    innerPadding ->
+                ) { innerPadding ->
                     val bottomPadding = innerPadding.calculateBottomPadding()
 
-                    NavHost(navController = navController,
+                    NavHost(
+                        navController = navController,
                         startDestination = "home",
-                        modifier = Modifier.fillMaxSize()) {
+                        modifier = Modifier.fillMaxSize()
+                    ) {
                         composable("home") {
-                                HomeScreen( modifier = Modifier.
-                                padding(bottom = bottomPadding),
-                                    navController ,
-                                    viewModel
-                                   )
-                            }
+                            HomeScreen(
+                                modifier = Modifier.padding(bottom = bottomPadding),
+                                navController,
+                                viewModel
+                            )
+                        }
 
-                            composable("function1") {
-                                FunctionScreen1(navController,
-                                    modifier = Modifier.padding(bottom = bottomPadding))
-                            }
+                        composable("function1") {
+                            FunctionScreen1(
+                                navController,
+                                modifier = Modifier.padding(bottom = bottomPadding)
+                            )
+                        }
 
-                            composable("wallet1") {
-                                WalletScreen1(navController,
-                                    viewModel,
-                                    modifier = Modifier.padding(bottom = bottomPadding))
-                            }
-                        composable("booking"){
-                            BookingScreen(navController,
+                        composable("wallet1") {
+                            WalletScreen1(
+                                navController,
                                 viewModel,
-                                modifier = Modifier.padding(bottom = bottomPadding))
+                                modifier = Modifier.padding(bottom = bottomPadding)
+                            )
+                        }
+                        composable("booking") {
+                            BookingScreen(
+                                navController,
+                                viewModel,
+                                modifier = Modifier.padding(bottom = bottomPadding)
+                            )
 
                         }
-                        composable("bookingSummary"){
-                            BookingSummaryScreen(navController,
+                        composable("bookingSummary") {
+                            BookingSummaryScreen(
+                                navController,
                                 viewModel,
-                                modifier = Modifier.padding(bottom = bottomPadding))
+                                modifier = Modifier.padding(bottom = bottomPadding)
+                            )
+                        }
+                        composable("message") {
+                            MessageScreen(
+                                navController,
+                                viewModel,
+                                modifier = Modifier.padding(bottom = bottomPadding)
+                            )
                         }
                     }
                 }
@@ -615,7 +632,7 @@ fun RecommendedItem(
 //-----------------------------------------------------------------------------
 
 @Composable
-fun BottBar() {
+fun BottBar(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -629,9 +646,12 @@ fun BottBar() {
                 .align(Alignment.TopCenter),
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            BotItem(icon = R.drawable.home, label = "Home")
+            BotItem(icon = R.drawable.home, label = "Home",modifier = Modifier.
+            clickable {navController.navigate("home") })
             BotItem(icon = R.drawable.activity, label = "Activity")
-            BotItem(icon = R.drawable.message, label = "Message")
+            BotItem(icon = R.drawable.message, label = "Message",modifier = Modifier.
+                clickable {navController.navigate("message") }
+            )
             BotItem(icon = R.drawable.deliver, label = "delivery")
         }
     }

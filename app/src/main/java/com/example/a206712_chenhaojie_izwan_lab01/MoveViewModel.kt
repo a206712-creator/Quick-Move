@@ -12,7 +12,7 @@ data class WalletData(
 data class BookingData(
     val pickupLocation: String,
     val destination: String,
-    val vehicle: String,
+    val vehicleType: String,
     val price: String
 )
 
@@ -23,19 +23,23 @@ class WalletViewModel : ViewModel() {
         WalletData
             ("", "")
     )
+    var booking = mutableStateOf(
+        BookingData("", "", "", "")
+    )
 
     fun setWalletData(title: String, amount: String) {
         selectedWallet.value = WalletData(title, amount)
+    }
 
-        var booking = mutableStateOf(
-            BookingData("", "", "","")
-        )
 
-        fun setBookingData(pickupLocation: String, destination: String,
-                           vehicle: String,price: String) {
-            booking.value = BookingData(pickupLocation, destination, vehicle,price)
+        fun setBookingData(
+            pickupLocation: String, destination: String,
+            vehicleType: String, price: String
+        ) {
+            booking.value = BookingData(pickupLocation, destination, vehicleType, price)
 
         }
+
+
     }
-}
 
