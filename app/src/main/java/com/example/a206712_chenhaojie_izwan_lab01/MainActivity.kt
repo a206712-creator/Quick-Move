@@ -63,9 +63,6 @@ import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.navigation.compose.NavHost
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Shapes
-import androidx.compose.ui.modifier.modifierLocalOf
 import androidx.compose.ui.unit.Dp
 import android.content.Context
 import android.content.Intent
@@ -106,7 +103,8 @@ class MainActivity : ComponentActivity() {
                         startDestination = "home",
                         modifier = Modifier.fillMaxSize()) {
                         composable("home") {
-                                HomeScreen( modifier = Modifier.padding(bottom = bottomPadding),
+                                HomeScreen( modifier = Modifier.
+                                padding(bottom = bottomPadding),
                                     navController ,
                                     viewModel
                                    )
