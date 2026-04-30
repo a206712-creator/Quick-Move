@@ -120,13 +120,23 @@ class MainActivity : ComponentActivity() {
                                     viewModel,
                                     modifier = Modifier.padding(bottom = bottomPadding))
                             }
+                        composable("booking"){
+                            BookingScreen(navController,
+                                viewModel,
+                                modifier = Modifier.padding(bottom = bottomPadding))
+
+                        }
+                        composable("bookingSummary"){
+                            BookingSummaryScreen(navController,
+                                viewModel,
+                                modifier = Modifier.padding(bottom = bottomPadding))
                         }
                     }
                 }
             }
         }
     }
-
+}
 
 //------------------------------------------------------------------------------
 @Composable
@@ -142,8 +152,6 @@ fun HomeScreen(modifier: Modifier = Modifier,
     ) {
 
         TopBar()
-
-       // UserInputSection()
 
         FunctionGrid(navController)
 
@@ -226,53 +234,7 @@ fun TopBar(
     }
 }
 
-/*@Composable
-fun UserInputSection() {
 
-    var name by remember { mutableStateOf("") }
-    var result by remember { mutableStateOf("") }
-
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-    ) {
-
-        Text(
-            text = "Matric No: A206712",
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        TextField(
-            value = name,
-            onValueChange = { name = it },
-            placeholder = { Text("Enter your name") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(10.dp))
-
-        Button(
-            onClick = {
-                result = "Hello $name (A206712)"
-            },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Submit")
-        }
-
-        Spacer(modifier = Modifier.height(10.dp))
-
-        Text(
-            text = result,
-            fontSize = 18.sp,
-            color = Color(0xFF3F51B5)
-        )
-    }
-}*/
 
 //--------------------------------------------------------------------------------
 @Composable
