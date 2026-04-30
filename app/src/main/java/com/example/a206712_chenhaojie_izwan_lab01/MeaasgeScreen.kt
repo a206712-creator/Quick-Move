@@ -50,7 +50,7 @@ fun MessageScreen(navController: NavController,
         Spacer(modifier = Modifier.height(20.dp))
 
         Column(
-            Modifier.padding(16.dp)
+            Modifier.padding(17.dp)
                 .fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
