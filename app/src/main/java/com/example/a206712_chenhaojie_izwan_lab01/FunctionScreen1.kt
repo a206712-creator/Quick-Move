@@ -20,10 +20,12 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -73,31 +75,58 @@ fun FunctionScreen1(navController: NavController,
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth(),
-            shape = RoundedCornerShape(20.dp),
-            elevation = CardDefaults.cardElevation(6.dp)
+
+            shape = RoundedCornerShape(24.dp),
+
+            elevation = CardDefaults.cardElevation(8.dp)
         ) {
+
             Column(
-                modifier = Modifier.padding(20.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
+                modifier = Modifier.padding(22.dp),
+
+                verticalArrangement =
+                    Arrangement.spacedBy(18.dp)
             ) {
 
                 Text(
-                    text = "Car Service",
-                    fontSize = 18.sp,
+                    text = "Car Ride Service",
+                    fontSize = 24.sp,
                     fontWeight = FontWeight.Bold
                 )
 
+                Text(
+                    text =
+                        "Book rides quickly and safely anywhere.",
+                    color = Color.Gray
+                )
+
                 Button(
-                    onClick = {navController.navigate("booking")},
-                    modifier = Modifier.fillMaxWidth()
+                    onClick = {
+                        navController.navigate("booking")
+                    },
+
+                    modifier =
+                        Modifier.fillMaxWidth()
+                            .height(54.dp),
+
+                    shape = RoundedCornerShape(18.dp)
                 ) {
+
                     Text("Book Now")
                 }
 
-                Button(
-                    onClick = {},
-                    modifier = Modifier.fillMaxWidth()
+                OutlinedButton(
+                    onClick = {
+                        navController.navigate("history")
+                    },
+
+                    modifier =
+                        Modifier.fillMaxWidth()
+                            .height(54.dp),
+
+                    shape = RoundedCornerShape(18.dp)
                 ) {
+
                     Text("View History")
                 }
             }

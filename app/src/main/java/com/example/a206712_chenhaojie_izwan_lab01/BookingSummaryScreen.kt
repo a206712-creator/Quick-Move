@@ -17,6 +17,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -24,6 +25,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -71,32 +73,115 @@ fun BookingSummaryScreen(navController: NavController,
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth(),
-            shape = RoundedCornerShape(18.dp),
-            elevation = CardDefaults.cardElevation(6.dp)
+
+            shape = RoundedCornerShape(24.dp),
+
+            elevation = CardDefaults.cardElevation(10.dp),
+
+            colors = CardDefaults.cardColors(
+                containerColor =
+                    MaterialTheme.colorScheme.surface
+            )
         ) {
+
             Column(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(22.dp),
 
+                verticalArrangement =
+                    Arrangement.spacedBy(18.dp)
             ) {
-                Text("Booking Summary", fontSize = 20.sp, fontWeight = FontWeight.Bold)
 
-                Spacer(modifier = Modifier.height(20.dp))
+                Text(
+                    text = "Ride Summary",
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold
+                )
 
-                Text("PickupLocation: ${data.pickupLocation}")
-                Text("Destination: ${data.destination}")
-                Text("VehicleType: ${data.vehicleType}")
-                Text("Price: ${data.price}")
+                HorizontalDivider()
+
+                SummaryRow(
+                    title = "Pickup",
+                    value = data.pickupLocation
+                )
+
+                SummaryRow(
+                    title = "Destination",
+                    value = data.destination
+                )
+
+                SummaryRow(
+                    title = "Vehicle",
+                    value = data.vehicleType
+                )
+
+                HorizontalDivider()
+
+                Column {
+
+                    Text(
+                        text = "Total Payment",
+                        color = Color.Gray
+                    )
+
+                    Spacer(
+                        modifier = Modifier.height(6.dp)
+                    )
+
+                    Text(
+                        text = data.price,
+                        fontSize = 36.sp,
+                        fontWeight = FontWeight.Bold,
+                        color =
+                            MaterialTheme.colorScheme.primary
+                    )
+                }
             }
         }
 
         Spacer(modifier = Modifier.height(25.dp))
         Button(
-            onClick = {},
-            modifier = Modifier.fillMaxWidth()
+
+            onClick = {
+
+                viewModel.saveBooking()
+
+                navController.navigateUp()
+            },
+
+            modifier = Modifier
+                .fillMaxWidth()
                 .padding(16.dp)
-                .height(50.dp)
-        ) {
+                .height(58.dp),
+
+            shape = RoundedCornerShape(18.dp)
+        ){
             Text("Confirm Booking")
         }
+    }
+}
+
+@Composable
+fun SummaryRow(
+    title: String,
+    value: String
+) {
+
+    Column {
+
+        Text(
+            text = title,
+            color = Color.Gray,
+            fontSize = 14.sp
+        )
+
+        Spacer(
+            modifier = Modifier.height(4.dp)
+        )
+
+        Text(
+            text = value,
+            fontSize = 19.sp,
+            fontWeight = FontWeight.SemiBold
+        )
     }
 }

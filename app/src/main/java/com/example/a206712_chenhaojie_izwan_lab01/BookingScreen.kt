@@ -81,6 +81,17 @@ fun BookingScreen(navController: NavController,
             }
         }
 
+
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(
+            text = "Select your pickup and destination",
+            color = Color.Black,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(start = 16.dp)
+        )
+
         Spacer(modifier = Modifier.height(20.dp))
 
         TextField(

@@ -148,6 +148,13 @@ class MainActivity : ComponentActivity() {
                                 modifier = Modifier.padding(bottom = bottomPadding)
                             )
                         }
+                        composable("history"){
+                            HistoryScreen(
+                                navController,
+                                viewModel,
+                                modifier = Modifier.padding(bottom = bottomPadding)
+                            )
+                        }
                     }
                 }
             }
@@ -396,7 +403,7 @@ fun WalletCard(
             ) {
                 Text(
                     text = title,
-                    fontSize = 12.sp,
+                    style = MaterialTheme.typography.labelSmall,
                     color = Color.Yellow
                 )
                 Spacer(modifier = Modifier.weight(1f))
@@ -412,7 +419,9 @@ fun WalletCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = subtitle, fontSize = 13.sp)
+                Text(text = subtitle,
+                    style = MaterialTheme.typography.labelSmall,
+                            )
                 Image(
                     painter = painterResource(id = icon),
                     contentDescription = null,
@@ -471,14 +480,14 @@ fun PromoSection() {
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(14.dp))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
                 text = "Promotion Activity",
-                fontSize = 16.sp,
+                style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(start = 16.dp)
             )
             Image(
@@ -486,7 +495,7 @@ fun PromoSection() {
                 contentDescription = null,
                 modifier = Modifier
                     .size(40.dp)
-                    .padding(end = 16.dp, bottom = 8.dp)
+                    .padding(end = 16.dp, bottom = 16.dp)
             )
         }
 
@@ -578,7 +587,7 @@ fun RecommendedSection(navController: NavController) {
     ) {
         Text(
             text = "Recommended",
-            fontSize = 16.sp,
+            style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.padding(start = 16.dp)
         )
 

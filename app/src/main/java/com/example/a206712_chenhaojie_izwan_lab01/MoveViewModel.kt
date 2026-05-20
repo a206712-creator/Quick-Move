@@ -1,7 +1,15 @@
 package com.example.a206712_chenhaojie_izwan_lab01
 
+import android.app.Application
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.a206712_chenhaojie_izwan_lab01.data.BookingDatabase
+import com.example.a206712_chenhaojie_izwan_lab01.data.BookingEntity
+import com.example.a206712_chenhaojie_izwan_lab01.data.BookingRepository
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
 
 data class WalletData(
@@ -18,7 +26,9 @@ data class BookingData(
 
 
 
-class WalletViewModel : ViewModel() {
+class WalletViewModel(
+    application: Application
+) : AndroidViewModel(application) {
     var selectedWallet = mutableStateOf(
         WalletData
             ("", "")
@@ -26,6 +36,24 @@ class WalletViewModel : ViewModel() {
     var booking = mutableStateOf(
         BookingData("", "", "", "")
     )
+
+    private val repository: BookingRepository
+    init {
+
+        val dao =
+            BookingDatabase
+                .getDatabase(application)
+                .bookingDao()
+
+        repository = BookingRepository(dao)
+    }
+
+    val bookingList =
+        repository.allBookings.stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(),
+            initialValue = emptyList()
+        )
 
     fun setWalletData(title: String, amount: String) {
         selectedWallet.value = WalletData(title, amount)
@@ -40,6 +68,39 @@ class WalletViewModel : ViewModel() {
 
         }
 
+    fun saveBooking() {
+
+        viewModelScope.launch {
+
+            repository.insertBooking(
+                BookingEntity(
+                    pickupLocation =
+                        booking.value.pickupLocation,
+
+                    destination =
+                        booking.value.destination,
+
+                    vehicleType =
+                        booking.value.vehicleType,
+
+                    price =
+                        booking.value.price
+                )
+            )
+        }
+    }
+
+    fun deleteBooking(
+        booking: BookingEntity
+    ) {
+
+        viewModelScope.launch {
+
+            repository.deleteBooking(
+                booking
+            )
+        }
+    }
 
     }
 
