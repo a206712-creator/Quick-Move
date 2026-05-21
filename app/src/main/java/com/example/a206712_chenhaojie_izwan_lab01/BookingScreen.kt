@@ -43,10 +43,7 @@ import androidx.navigation.NavController
 fun BookingScreen(navController: NavController,
                   viewModel: WalletViewModel,
                   modifier: Modifier){
-    var pickupLocation by remember { mutableStateOf("") }
-    var destination by remember { mutableStateOf("") }
-    var selectedVehicleType by remember { mutableStateOf("") }
-    var selectedPrice by remember { mutableStateOf("") }
+
 
     Column(modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -95,9 +92,9 @@ fun BookingScreen(navController: NavController,
         Spacer(modifier = Modifier.height(20.dp))
 
         TextField(
-            value = pickupLocation,
+            value = viewModel.pickupLocation.value,
             onValueChange = {
-                pickupLocation = it },
+                viewModel.pickupLocation.value = it },
             label = { Text("Pickup Location") },
             modifier = Modifier.fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp),
@@ -115,8 +112,8 @@ fun BookingScreen(navController: NavController,
    Spacer(modifier = Modifier.height(30.dp))
 
         TextField(
-            value = destination,
-            onValueChange = { destination = it },
+            value = viewModel.destination.value,
+            onValueChange = { viewModel.destination.value = it },
             label = { Text("Destination") },
             modifier = Modifier.fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp),
@@ -138,26 +135,29 @@ fun BookingScreen(navController: NavController,
         Spacer(modifier = Modifier.height(10.dp))
 
 
-        VehicleCard("Standard(4 people)", "RM10", selectedVehicleType) {
-            selectedVehicleType = "Standard(4 people)"
-            selectedPrice = "RM10"
+        VehicleCard("Standard(4 people)", "RM10", viewModel.selectedVehicleType.value ) {
+            viewModel.selectedVehicleType.value  = "Standard(4 people)"
+            viewModel.selectedPrice.value = "RM10"
         }
 
-        VehicleCard("Standard(6 people)", "RM15", selectedVehicleType) {
-            selectedVehicleType = "Standard(6 people)"
-            selectedPrice = "RM15"
+        VehicleCard("Standard(6 people)", "RM15", viewModel.selectedVehicleType.value ) {
+            viewModel.selectedVehicleType.value  = "Standard(6 people)"
+            viewModel.selectedPrice.value = "RM15"
         }
 
-        VehicleCard("Business", "RM25", selectedVehicleType) {
-            selectedVehicleType = "Business"
-            selectedPrice = "RM25"
+        VehicleCard("Business", "RM25", viewModel.selectedVehicleType.value ) {
+            viewModel.selectedVehicleType.value  = "Business"
+            viewModel.selectedPrice.value = "RM25"
         }
 
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(
             onClick = {
-                viewModel.setBookingData(pickupLocation, destination, selectedVehicleType, selectedPrice)
+                viewModel.setBookingData(viewModel.pickupLocation.value,
+                    viewModel.destination.value,
+                    viewModel.selectedVehicleType.value,
+                    viewModel.selectedPrice.value)
                 navController.navigate("bookingSummary")
             },
             modifier = Modifier.fillMaxWidth()

@@ -37,6 +37,11 @@ class WalletViewModel(
         BookingData("", "", "", "")
     )
 
+    var pickupLocation = mutableStateOf("")
+    var destination = mutableStateOf("")
+    var selectedVehicleType = mutableStateOf("")
+    var selectedPrice = mutableStateOf("")
+
     private val repository: BookingRepository
     init {
 
