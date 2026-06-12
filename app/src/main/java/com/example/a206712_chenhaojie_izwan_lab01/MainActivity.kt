@@ -73,7 +73,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.a206712_chenhaojie_izwan_lab01.WalletViewModel
+import com.example.a206712_chenhaojie_izwan_lab01.MoveViewModel
 import com.example.a206712_chenhaojie_izwan_lab01.ui.theme.A206712_ChenHaojie_Izwan_Lab01Theme
 import kotlinx.coroutines.sync.Mutex
 
@@ -88,7 +88,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 val currentBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentRoute = currentBackStackEntry?.destination?.route
-                val viewModel: WalletViewModel = viewModel()
+                val viewModel: MoveViewModel = viewModel()
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     bottomBar = {
@@ -148,8 +148,29 @@ class MainActivity : ComponentActivity() {
                                 modifier = Modifier.padding(bottom = bottomPadding)
                             )
                         }
-                        composable("history"){
+                        composable("history") {
                             HistoryScreen(
+                                navController,
+                                viewModel,
+                                modifier = Modifier.padding(bottom = bottomPadding)
+                            )
+                        }
+                        composable("community") {
+                            CommunityScreen(
+                                navController,
+                                viewModel,
+                                modifier = Modifier.padding(bottom = bottomPadding)
+                            )
+                        }
+                        composable("location") {
+                            LocationScreen(
+                                navController,
+                                viewModel,
+                                modifier = Modifier.padding(bottom = bottomPadding)
+                            )
+                        }
+                        composable("weather") {
+                            WeatherScreen(
                                 navController,
                                 viewModel,
                                 modifier = Modifier.padding(bottom = bottomPadding)
@@ -166,7 +187,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier,
                navController: NavController,
-               viewModel: WalletViewModel = viewModel()
+               viewModel: MoveViewModel = viewModel()
                ) {
 
     Column(
@@ -325,7 +346,7 @@ fun GridItem(
 //---------------------------------------------------------------------------------
 
 @Composable
-fun WalletSection(navController: NavController,viewModel: WalletViewModel) {
+fun WalletSection(navController: NavController,viewModel: MoveViewModel) {
     LazyRow(
         modifier = Modifier.fillMaxWidth(),
         contentPadding = PaddingValues(horizontal = 16.dp),

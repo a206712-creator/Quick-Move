@@ -129,6 +129,51 @@ fun FunctionScreen1(navController: NavController,
 
                     Text("View History")
                 }
+
+                Button(
+                    onClick = {
+                        navController.navigate("community")
+                    },
+
+                    modifier =
+                        Modifier.fillMaxWidth()
+                            .height(54.dp),
+
+                    shape = RoundedCornerShape(18.dp)
+                ) {
+
+                    Text(" Ride Sharing")
+                }
+
+                OutlinedButton(
+                    onClick = {
+                        navController.navigate("location")
+                    },
+
+                    modifier =
+                        Modifier.fillMaxWidth()
+                            .height(54.dp),
+
+                    shape = RoundedCornerShape(18.dp)
+                ) {
+
+                    Text("Current Location")
+                }
+
+                Button(
+                    onClick = {
+                        navController.navigate("weather")
+                    },
+
+                    modifier =
+                        Modifier.fillMaxWidth()
+                            .height(54.dp),
+
+                    shape = RoundedCornerShape(18.dp)
+                ) {
+
+                    Text("Current Weather")
+                }
             }
         }
     }

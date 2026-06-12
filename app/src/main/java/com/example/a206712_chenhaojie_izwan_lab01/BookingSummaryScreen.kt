@@ -33,7 +33,7 @@ import androidx.navigation.NavController
 
 @Composable
 fun BookingSummaryScreen(navController: NavController,
-                  viewModel: WalletViewModel,
+                  viewModel: MoveViewModel,
                   modifier: Modifier) {
     val data = viewModel.booking.value
 

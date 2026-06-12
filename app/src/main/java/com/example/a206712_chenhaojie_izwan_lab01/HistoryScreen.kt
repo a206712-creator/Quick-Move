@@ -22,7 +22,7 @@ import androidx.navigation.NavController
 @Composable
 fun HistoryScreen(
     navController: NavController,
-    viewModel: WalletViewModel,
+    viewModel: MoveViewModel,
     modifier: Modifier = Modifier
 ) {
 

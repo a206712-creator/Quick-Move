@@ -32,7 +32,7 @@ import androidx.navigation.NavController
 
 @Composable
 fun WalletScreen1(navController: NavController,
-                  viewModel: WalletViewModel,
+                  viewModel: MoveViewModel,
                  modifier: Modifier){
     val data = viewModel.selectedWallet.value
     Column(modifier = modifier.fillMaxSize(),

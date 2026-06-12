@@ -41,7 +41,7 @@ import androidx.navigation.NavController
 
 @Composable
 fun BookingScreen(navController: NavController,
-                  viewModel: WalletViewModel,
+                  viewModel: MoveViewModel,
                   modifier: Modifier){
 
 

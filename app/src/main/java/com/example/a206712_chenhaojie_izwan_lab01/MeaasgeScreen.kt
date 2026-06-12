@@ -25,7 +25,7 @@ import androidx.navigation.NavController
 
 @Composable
 fun MessageScreen(navController: NavController,
-                  viewModel: WalletViewModel,
+                  viewModel: MoveViewModel,
                   modifier: Modifier){
     Column(
         modifier = modifier.fillMaxSize(),
