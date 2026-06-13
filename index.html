@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHEN HAOJIE | e-Portfolio</title>
+<title>CHEN HAOJIE | Mobile Programming e-Portfolio</title>
 
 <style>
 *{
@@ -16,58 +16,50 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
-background:#f5f9ff;
-color:#222;
-line-height:1.6;
-}
-
-header{
-background:linear-gradient(135deg,#0F4C81,#1E88E5);
-color:white;
-padding:100px 20px;
-text-align:center;
-}
-
-header h1{
-font-size:3rem;
-margin-bottom:10px;
-}
-
-header p{
-font-size:1.1rem;
+background:#f4f8fc;
+color:#333;
+line-height:1.7;
 }
 
 nav{
 position:sticky;
 top:0;
-z-index:1000;
-background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-
-nav ul{
+z-index:999;
+background:#0077b6;
+padding:15px 40px;
 display:flex;
 justify-content:center;
-list-style:none;
-flex-wrap:wrap;
+gap:30px;
+box-shadow:0 2px 10px rgba(0,0,0,0.15);
 }
 
-nav ul li{
-margin:10px;
-}
-
-nav ul li a{
+nav a{
+color:white;
 text-decoration:none;
-color:#0F4C81;
-font-weight:bold;
-padding:10px 15px;
-border-radius:8px;
+font-weight:600;
 transition:0.3s;
 }
 
-nav ul li a:hover{
-background:#1E88E5;
+nav a:hover{
+color:#caf0f8;
+}
+
+header{
+background:linear-gradient(135deg,#0077b6,#00b4d8);
 color:white;
+padding:80px 20px;
+text-align:center;
+}
+
+header h1{
+font-size:3rem;
+margin-bottom:15px;
+}
+
+header p{
+max-width:900px;
+margin:auto;
+font-size:1.1rem;
 }
 
 section{
@@ -78,108 +70,106 @@ padding:70px 10%;
 text-align:center;
 font-size:2rem;
 margin-bottom:40px;
-color:#0F4C81;
+color:#0077b6;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:25px;
 }
 
 .card{
 background:white;
-padding:25px;
-margin-bottom:30px;
-border-radius:18px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
+border-radius:20px;
+padding:20px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 .card h3{
-color:#0F4C81;
+color:#0077b6;
 margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:12px;
 }
 
 iframe{
 width:100%;
-height:400px;
+height:250px;
 border:none;
 border-radius:12px;
-margin-top:15px;
+margin-top:10px;
 margin-bottom:15px;
 }
 
-.reflection{
-background:#eef6ff;
-padding:15px;
-border-left:5px solid #1E88E5;
-border-radius:10px;
-margin-top:15px;
-}
-
-.btn{
+.github-btn{
 display:inline-block;
-padding:12px 20px;
-background:#1E88E5;
+padding:10px 20px;
+background:#0077b6;
 color:white;
 text-decoration:none;
 border-radius:10px;
-margin-top:15px;
+font-weight:bold;
+margin-top:10px;
 }
 
-.btn:hover{
-background:#0F4C81;
+.github-btn:hover{
+background:#023e8a;
 }
 
 .skills{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+display:flex;
+flex-wrap:wrap;
 gap:15px;
+justify-content:center;
 }
 
-.skill-box{
-background:white;
-padding:20px;
-text-align:center;
-border-radius:15px;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
-font-weight:bold;
+.skill{
+background:#0077b6;
+color:white;
+padding:10px 18px;
+border-radius:25px;
+font-weight:600;
+}
+
+.resources ul{
+padding-left:20px;
 }
 
 footer{
-background:#0F4C81;
+background:#023e8a;
 color:white;
 text-align:center;
 padding:25px;
 margin-top:50px;
 }
 
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
-
-table th,
-table td{
-border:1px solid #ddd;
-padding:12px;
-text-align:left;
-}
-
-table th{
-background:#1E88E5;
-color:white;
-}
-
 @media(max-width:768px){
+
+nav{
+flex-wrap:wrap;
+gap:15px;
+padding:15px;
+}
 
 header h1{
 font-size:2rem;
-}
-
-iframe{
-height:220px;
 }
 
 section{
 padding:50px 20px;
 }
 
+iframe{
+height:220px;
+}
 }
 </style>
 
@@ -187,102 +177,81 @@ padding:50px 20px;
 
 <body>
 
-<header id="home">
-<h1>🚖 Quick Move e-Portfolio</h1>
+<nav>
+<a href="#home">Home</a>
+<a href="#labs">Labs</a>
+<a href="#projects">Projects</a>
+<a href="#reflection">Reflection</a>
+<a href="#skills">Skills</a>
+<a href="#resources">Resources</a>
+</nav>
 
-<p><strong>CHEN HAOJIE</strong></p>
-<p>Matric No: A206712</p>
-<p>Programme: TTTM2213 Mobile Application Development</p>
-<p>Instructor: Dr. Cikgu Izwan</p>
+<header id="home">
+
+<h1>CHEN HAOJIE</h1>
+
+<h2>A206712</h2>
+
+<p>
+Programme: Mobile Application Management (TM2213)
+</p>
+
+<p>
+Instructor: Dr. Cikgu Izwan
+</p>
 
 <br>
 
 <p>
-SDG 11 – Sustainable Cities and Communities
+Welcome to my Mobile Programming e-Portfolio. This portfolio documents my learning journey throughout Labs 1 to 5 and Projects 1 and 2. Throughout this course, I learned how to design modern Android user interfaces, implement navigation, manage application state, integrate local and cloud databases, connect to live APIs, and utilize mobile sensors to build a complete mobile application using Jetpack Compose.
 </p>
 
+<br>
+
 <p>
-Quick Move promotes sustainable transportation through ride-sharing,
-community mobility and smart transportation technologies.
+<strong>SDG 11: Sustainable Cities and Communities</strong><br>
+This project supports sustainable and connected communities by improving transportation accessibility through ride booking, ride sharing, real-time information services, cloud connectivity, and smart mobile technologies.
 </p>
 
 </header>
 
-<nav>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#labs">Labs</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#reflection">Reflection</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#resources">Resources</a></li>
-</ul>
-</nav>
-
-<section>
-
-<h2 class="section-title">About Me</h2>
-
-<div class="card">
-
-<p>
-Hello, my name is CHEN HAOJIE. I am a student taking TTTM2213 Mobile Application Development.
-This portfolio documents my learning journey throughout the semester, covering Android development
-using Kotlin, Jetpack Compose, MVVM architecture, Room Database, Firebase Firestore, REST APIs,
-and mobile sensors.
-</p>
-
-<br>
-
-<p>
-My final application, Quick Move, aligns with SDG 11 by providing ride booking,
-ride sharing, weather information, and location services to improve transportation accessibility.
-</p>
-
-</div>
-
-</section>
-
 <section id="labs">
 
 <h2 class="section-title">Laboratory Activities</h2>
+
+<div class="cards">
 
 <div class="card">
 
 <h3>Lab 1 – User Interface Design</h3>
 
 <p>
-Developed the initial user interface using Jetpack Compose.
-Focused on layout arrangement and composable structure.
+This lab focused on building a static user interface using Jetpack Compose. I learned how to organize layouts using Column, Row, Box, Spacer, and basic UI components.
 </p>
 
-<iframe src="https://www.youtube.com/embed/x1aLMR4vsiw" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/x1aLMR4vsiw" title="Lab 1 Video"></iframe>
 
-<div class="reflection">
-<strong>Reflection:</strong><br>
-This lab introduced me to Jetpack Compose and modern Android UI development.
-I learned how composables work together to create responsive user interfaces.
-The experience built a strong foundation for future mobile development tasks.
-</div>
+<p>
+Reflection:
+Lab 1 introduced me to modern Android UI development with Jetpack Compose. I learned how different composables work together to create a structured layout. This lab established the foundation required for all subsequent labs and projects.
+</p>
 
 </div>
 
 <div class="card">
 
-<h3>Lab 2 – Interaction and State</h3>
+<h3>Lab 2 – User Interaction</h3>
 
 <p>
-Implemented user interactions using TextField, Button and state management.
+This lab introduced interactive components such as TextField and Button. User input could now update the interface dynamically through state management.
 </p>
 
-<iframe src="https://www.youtube.com/embed/jVuL6Lh8PpQ" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/jVuL6Lh8PpQ" title="Lab 2 Video"></iframe>
 
-<div class="reflection">
-<strong>Reflection:</strong><br>
-I learned how state controls UI updates and user interactions.
-Understanding state management helped me create dynamic applications.
-This lab improved my understanding of reactive programming concepts.
-</div>
+<p>
+Reflection:
+Through this lab, I understood the importance of state management in Compose applications. User interactions could now trigger UI updates instantly. This experience helped me understand reactive programming concepts used throughout Android development.
+</p>
 
 </div>
 
@@ -291,54 +260,49 @@ This lab improved my understanding of reactive programming concepts.
 <h3>Lab 3 – Material Design</h3>
 
 <p>
-Applied Material Design principles, themes, typography and cards.
+This lab emphasized modern Material Design principles, including typography, color schemes, themes, cards, and visual consistency.
 </p>
 
-<iframe src="https://www.youtube.com/embed/8MgKmAy463k" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/8MgKmAy463k" title="Lab 3 Video"></iframe>
 
-<div class="reflection">
-<strong>Reflection:</strong><br>
-This lab taught me how visual consistency improves user experience.
-I explored color schemes and typography to create professional-looking interfaces.
-Material Design greatly enhanced the overall appearance of my app.
-</div>
+<p>
+Reflection:
+Lab 3 taught me how visual design contributes to user experience. By applying Material Design principles, I was able to create cleaner and more professional interfaces. This significantly improved the overall quality of my application.
+</p>
 
 </div>
-
 <div class="card">
 
 <h3>Lab 4 – Navigation and ViewModel</h3>
 
 <p>
-Implemented navigation flow and ViewModel architecture.
+This lab focused on implementing multi-screen navigation and managing application data using ViewModel. Navigation Compose was used to move between screens while preserving UI state.
 </p>
 
-<iframe src="https://www.youtube.com/embed/WPZb5bFjP6w" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/WPZb5bFjP6w" title="Lab 4 Video"></iframe>
 
-<div class="reflection">
-<strong>Reflection:</strong><br>
-I learned how ViewModel preserves data across configuration changes.
-Navigation Compose enabled smooth transitions between screens.
-This lab introduced me to MVVM architecture.
-</div>
+<p>
+Reflection:
+Lab 4 was a major milestone because it transformed a simple application into a multi-screen mobile app. I learned how Navigation Compose works and how ViewModel helps preserve data during configuration changes. This lab also introduced me to the MVVM architecture that is widely used in modern Android development.
+</p>
 
 </div>
 
 <div class="card">
 
-<h3>Lab 5 – Room Database</h3>
+<h3>Lab 5 – Room Database Integration</h3>
 
 <p>
-Integrated Room Database for persistent local storage.
+This lab introduced persistent local storage using Room Database. The application was upgraded with Entity, DAO, Repository, Database, and ViewModel components following MVVM architecture.
 </p>
 
-<iframe src="https://www.youtube.com/embed/U3PG-_FKEhQ" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/U3PG-_FKEhQ" title="Lab 5 Video"></iframe>
 
-<div class="reflection">
-<strong>Reflection:</strong><br>
-This lab helped me understand local data persistence.
-I implemented Entity, DAO, Repository and Room Database.
-The application can now retain data even after restarting.
+<p>
+Reflection:
+Lab 5 helped me understand how real applications store data permanently. I learned how Room Database works together with DAO, Repository, and ViewModel. This lab completed my understanding of local persistence and allowed my application to save booking history even after restarting the app.
+</p>
+
 </div>
 
 </div>
@@ -349,31 +313,29 @@ The application can now retain data even after restarting.
 
 <h2 class="section-title">Projects</h2>
 
+<div class="cards">
+
 <div class="card">
 
-<h3>Project 1 – Quick Move (Ride Booking Application)</h3>
+<h3>Project 1 – Quick Move Ride Booking System</h3>
+
+<p>
+<strong>App Name:</strong> Quick Move
+</p>
 
 <p>
 <strong>Problem Statement:</strong><br>
-Users often face difficulties managing transportation bookings efficiently.
-Quick Move provides a centralized platform for ride booking and booking history management.
+Many students and community members face difficulties managing transportation bookings efficiently. Traditional methods are often time-consuming and lack centralized booking management. Quick Move provides a simple and user-friendly mobile platform for booking rides and managing transportation records.
 </p>
 
-<iframe src="https://www.youtube.com/embed/OnwREZ6BPVc" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/OnwREZ6BPVc" title="Project 1 Video"></iframe>
 
-<div class="reflection">
+<p>
+<strong>Lessons Learned:</strong><br>
+Project 1 allowed me to combine everything learned from Labs 1 to 4 into a complete application. I implemented user interface design, state management, navigation, and booking workflows within a single project. Through this project, I developed a deeper understanding of application architecture and user-centered design principles.
+</p>
 
-<strong>Reflection:</strong><br>
-
-Project 1 combined all concepts learned from previous labs into a working application.
-I successfully integrated navigation, state management and booking workflows.
-The project strengthened my confidence in Android application development.
-
-</div>
-
-<br>
-
-<a class="btn"
+<a class="github-btn"
 href="https://github.com/a206712-creator/Quick-Move"
 target="_blank">
 View on GitHub </a>
@@ -385,31 +347,27 @@ View on GitHub </a>
 <h3>Project 2 – Quick Move SDG 11 Enhancement</h3>
 
 <p>
-<strong>Problem Statement:</strong><br>
-Urban transportation challenges include inefficient ride sharing,
-limited access to transportation information, and lack of real-time mobility support.
-This project addresses these issues using cloud services, APIs and GPS technologies.
+<strong>App Name:</strong> Quick Move
 </p>
 
-<iframe src="https://www.youtube.com/embed/M3X4xKuw7po" allowfullscreen></iframe>
+<p>
+<strong>Problem Statement:</strong><br>
+Urban communities require smarter and more sustainable transportation solutions. Many users need real-time transportation information, ride-sharing opportunities, and location-based services. This project addresses these challenges through cloud integration, live weather information, GPS services, and ride-sharing functionality aligned with SDG 11.
+</p>
 
-<div class="reflection">
+<iframe src="https://www.youtube.com/embed/M3X4xKuw7po" title="Project 2 Video"></iframe>
 
-<strong>Reflection:</strong><br>
+<p>
+<strong>Lessons Learned:</strong><br>
+Project 2 expanded the application beyond local functionality by integrating Firebase Firestore, Weather API services, GPS location sensors, and Room Database persistence. I learned how cloud technologies, APIs, and hardware sensors can work together within a modern Android application. This project strengthened my technical skills while demonstrating how technology can contribute toward Sustainable Cities and Communities.
+</p>
 
-This project integrated Room Database, Firebase Firestore, Weather API and GPS location services.
-I learned how modern mobile applications combine local storage, cloud computing,
-internet data and sensors to create intelligent user experiences.
-The project demonstrated the practical implementation of SDG 11 Sustainable Cities and Communities.
-
-</div>
-
-<br>
-
-<a class="btn"
+<a class="github-btn"
 href="https://github.com/a206712-creator/Quick-Move"
 target="_blank">
 View on GitHub </a>
+
+</div>
 
 </div>
 
@@ -419,111 +377,159 @@ View on GitHub </a>
 
 <h2 class="section-title">Reflection & Learning Journey</h2>
 
-<div class="card">
-
 <p>
-Throughout this course, I progressed from creating simple user interfaces to developing a complete Android application using modern development practices.
+Throughout this semester, I experienced significant growth in mobile application development. Starting from simple static user interfaces in Lab 1, I gradually learned how to create interactive applications, apply Material Design principles, implement navigation, manage state using ViewModel, and integrate persistent storage using Room Database.
 </p>
 
 <br>
 
 <p>
-I learned MVVM architecture, Jetpack Compose, Room Database, Firebase Firestore, REST APIs and GPS sensor integration.
+The progression from individual labs to complete projects allowed me to understand how different Android components work together. By developing the Quick Move application, I gained practical experience in designing real-world solutions rather than merely learning theoretical concepts.
 </p>
 
 <br>
 
 <p>
-The Quick Move project allowed me to apply technical knowledge to a real-world SDG problem.
-This experience improved both my programming skills and understanding of mobile application architecture.
+Project 2 was particularly meaningful because it introduced advanced technologies such as Firebase Firestore, Weather APIs, and GPS sensors. These integrations helped me understand how modern mobile applications communicate with cloud services, external systems, and device hardware.
 </p>
 
-</div>
+<br>
+
+<p>
+Overall, this course has strengthened my technical skills, problem-solving abilities, and confidence in Android development. I now have a much clearer understanding of how to design, develop, test, and deploy a complete mobile application using modern development practices.
+</p>
 
 </section>
-
 <section id="skills">
 
-<h2 class="section-title">Skills & Technology Stack</h2>
+<h2 class="section-title">Skills & Tech Stack</h2>
 
 <div class="skills">
 
-<div class="skill-box">Kotlin</div>
-<div class="skill-box">Jetpack Compose</div>
-<div class="skill-box">MVVM</div>
-<div class="skill-box">Room Database</div>
-<div class="skill-box">Firebase Firestore</div>
-<div class="skill-box">REST API</div>
-<div class="skill-box">GPS Location</div>
-<div class="skill-box">Navigation Compose</div>
-<div class="skill-box">State Management</div>
-<div class="skill-box">GitHub</div>
+<div class="skill">Kotlin</div>
+
+<div class="skill">Jetpack Compose</div>
+
+<div class="skill">Android Studio</div>
+
+<div class="skill">Material Design 3</div>
+
+<div class="skill">Navigation Compose</div>
+
+<div class="skill">MVVM Architecture</div>
+
+<div class="skill">ViewModel</div>
+
+<div class="skill">State Management</div>
+
+<div class="skill">Room Database</div>
+
+<div class="skill">SQLite</div>
+
+<div class="skill">Repository Pattern</div>
+
+<div class="skill">Firebase Firestore</div>
+
+<div class="skill">REST API Integration</div>
+
+<div class="skill">Open-Meteo API</div>
+
+<div class="skill">GPS Location Services</div>
+
+<div class="skill">Google Play Services</div>
+
+<div class="skill">Responsive UI Design</div>
+
+<div class="skill">Git</div>
+
+<div class="skill">GitHub</div>
+
+<div class="skill">GitHub Pages</div>
 
 </div>
 
 </section>
 
-<section id="resources">
+<section id="resources" class="resources">
 
 <h2 class="section-title">Resources & References</h2>
 
-<div class="card">
+<ul>
 
-<table>
+<li>
+Android Developers Official Documentation
+</li>
 
-<tr>
-<th>Resource</th>
-<th>Purpose</th>
-</tr>
+<li>
+Jetpack Compose Documentation
+</li>
 
-<tr>
-<td>Android Developer Documentation</td>
-<td>Compose, Room and Navigation Guides</td>
-</tr>
+<li>
+Room Database Codelab and Android Developer Guides
+</li>
 
-<tr>
-<td>Firebase Firestore Documentation</td>
-<td>Cloud Database Integration</td>
-</tr>
+<li>
+Firebase Firestore Official Documentation
+</li>
 
-<tr>
-<td>Open-Meteo API</td>
-<td>Weather Information Service</td>
-</tr>
+<li>
+Open-Meteo Weather API
+</li>
 
-<tr>
-<td>Google Location Services</td>
-<td>GPS Sensor Integration</td>
-</tr>
+<li>
+Google Play Services Location API
+</li>
 
-<tr>
-<td>GitHub</td>
-<td>Version Control and Repository Hosting</td>
-</tr>
+<li>
+Navigation Compose Documentation
+</li>
 
-<tr>
-<td>ChatGPT</td>
-<td>AI-assisted learning, debugging and documentation support</td>
-</tr>
+<li>
+Material Design 3 Guidelines
+</li>
 
-</table>
+<li>
+GitHub and GitHub Pages Documentation
+</li>
 
-</div>
+<li>
+YouTube Video Hosting Platform (Unlisted Videos)
+</li>
+
+<li>
+Artificial Intelligence assistance was used as a learning support tool for code explanation, debugging guidance, documentation writing, reflection writing, and portfolio organization. All implementation, testing, customization, and project integration work were completed by the student.
+</li>
+
+</ul>
 
 </section>
 
 <footer>
 
+<h3>
+CHEN HAOJIE
+</h3>
+
 <p>
-CHEN HAOJIE | A206712
+Matric Number: A206712
 </p>
 
 <p>
-TTTM2213 Mobile Application Development
+Programme: Mobile Application Management (TM2213)
 </p>
 
 <p>
-© 2026 e-Portfolio
+Instructor: Dr. Cikgu Izwan
+</p>
+
+<p>
+SDG 11 – Sustainable Cities and Communities
+</p>
+
+<br>
+
+<p>
+© 2026 CHEN HAOJIE | Mobile Programming e-Portfolio
 </p>
 
 </footer>
